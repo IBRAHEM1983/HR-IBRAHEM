@@ -9,6 +9,8 @@
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
         }
         h1 {
             color: #b8860b;
@@ -52,31 +54,42 @@
             background-color: #a0750d;
         }
 
-        /* تصميم الثلاث خطوط تحت بعضها */
+        /* تصميم زر القائمة */
         .menu-icon {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             width: 30px;
+            height: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .menu-icon span {
+            width: 100%;
             height: 3px;
             background-color: #333;
-            margin: 6px 0; /* المسافة بين الخطوط */
-            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         /* القائمة المنسدلة */
         .dropdown-menu {
             display: none;
             background-color: #333;
-            position: absolute;
-            top: 60px; /* المسافة من الأعلى */
+            position: fixed;
+            top: 60px;
             right: 10px;
             width: 200px;
             list-style: none;
             padding: 0;
             margin: 0;
             border-radius: 5px;
+            z-index: 999;
         }
 
-        /* تنسيق العناصر داخل القائمة المنسدلة */
         .dropdown-menu li {
             padding: 10px;
             text-align: right;
@@ -91,14 +104,44 @@
         .dropdown-menu li a:hover {
             background-color: #555;
         }
+
+        /* إظهار القائمة عند النقر */
+        .show {
+            display: block;
+        }
+
+        /* تحسين العرض على الموبايل */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            ul {
+                font-size: 18px;
+            }
+            p {
+                font-size: 24px;
+            }
+            button {
+                font-size: 18px;
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- زر الثلاث خطوط تحت بعضها -->
-    <div class="menu-icon" onclick="toggleMenu()"></div>
-    <div class="menu-icon" onclick="toggleMenu()"></div>
-    <div class="menu-icon" onclick="toggleMenu()"></div>
+    <!-- زر القائمة -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <!-- القائمة المنسدلة -->
     <ul class="dropdown-menu" id="dropdownMenu">
@@ -130,8 +173,7 @@
         <li>3- العشار ذهب</li>
         <li>4- الموفنبيك</li>
     </ul>
-  <img src="zen 1.jpg" width="1000" height="600">
-
+    <img src="zen 1.jpg" width="1000" height="600">
 
     <h3>بغداد</h3>
     <ul>
@@ -143,47 +185,44 @@
         <li>6- الجادرية</li>
         <li>7- العامرية</li>
     </ul>
-
- <img src="zen-iletisim-2.jpg" width="1000" height="600">
-
+    <img src="zen-iletisim-2.jpg" width="1000" height="600">
 
     <h3>كربلاء</h3>
     <ul>
         <li>فرع الحارث</li>
     </ul>
-  <img src="karbalaa.jpg" width="1000" height="600">
-
-
-
+    <img src="karbalaa.jpg" width="1000" height="600">
 
     <h3>أربيل</h3>
     <ul>
         <li>فرع غولان</li>
     </ul>
- <img src="gulan.jpg" width="1000" height="600">
-
-
+    <img src="gulan.jpg" width="1000" height="600">
 
     <h3>السليمانية</h3>
     <ul>
         <li>فرع فاميلي مول</li>
     </ul>
-< <img src="zen4.jpg" width="1000" height="600">
-
-
+    <img src="zen4.jpg" width="1000" height="600">
 
     <button onclick="window.location.href='https://sites.google.com/d/1-KLWKOIonDqZ6_8C1TNkuAP_qjJUQRrJ/p/1Js2a3GY5TMAE0KeEOKA33BfOyBRDuU1S/edit';">
         اذهب إلى الموقع
     </button>
 
     <script>
-        // دالة لفتح/إغلاق القائمة المنسدلة عند الضغط على زر الثلاث خطوط
+        // دالة لفتح/إغلاق القائمة المنسدلة عند الضغط على زر القائمة
         function toggleMenu() {
             var menu = document.getElementById('dropdownMenu');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none'; // إغلاق القائمة
-            } else {
-                menu.style.display = 'block'; // فتح القائمة
+            menu.classList.toggle('show');
+        }
+
+        // إغلاق القائمة عند النقر خارجها
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-icon') && !event.target.matches('.menu-icon span')) {
+                var menu = document.getElementById('dropdownMenu');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
             }
         }
     </script>
