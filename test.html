@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة مملكة النشمي</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #b8860b;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+        h2 {
+            color: #333;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        h3 {
+            color: #444;
+            font-size: 26px;
+            margin-top: 15px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 22px;
+            color: #555;
+        }
+        li {
+            margin: 8px 0;
+        }
+        p {
+            color: red;
+            font-size: 30px;
+        }
+        button {
+            background-color: #b8860b;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #a0750d;
+        }
+
+        /* تصميم زر القائمة */
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .menu-icon span {
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* القائمة المنسدلة */
+        .dropdown-menu {
+            display: none;
+            background-color: #333;
+            position: fixed;
+            top: 60px;
+            right: 10px;
+            width: 200px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+            text-align: right;
+        }
+
+        .dropdown-menu li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #555;
+        }
+
+        /* إظهار القائمة عند النقر */
+        .show {
+            display: block;
+        }
+
+        /* تحسين العرض على الموبايل */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            ul {
+                font-size: 18px;
+            }
+            p {
+                font-size: 24px;
+            }
+            button {
+                font-size: 18px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- زر القائمة -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- القائمة المنسدلة -->
+    <ul class="dropdown-menu" id="dropdownMenu">
+        <li><a href="https://drive.google.com/drive/folders/1bInB8OFb92eks_tRcC6NxvwLllVs64C4?usp=drive_link">موظفو الشركة</a></li>
+        <li><a href="https://drive.google.com/file/d/1D8AAoVy67QqB7QeSkKYlarzqFLngba2g/view?usp=drive_link">النظام الداخلي للشركة</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1vqb8JIX_PU_06O7Fw7nQ2FWio5MHyjMO/edit?usp=drive_link&ouid=104744181782145593744&rtpof=true&sd=true">حركة الأغراض</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1aQVXpLG8JFllfgzyMbb3FnaZYZhNZLwX-Z-zEKi5zeo/edit?usp=drive_link">فهرس الكتب الإدارية</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1QF2Mc4f2uiBH7qpb3bs1inKqJi99CR5U?usp=drive_link">أوراق عمل</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/12Ru1oJrPRtWTwOrfu7WY98BBOvNdfoA591Y_lxaYaio/edit?usp=drive_link">التوظيف</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1EAD5Z2Gon2asxuHj4lLs4BOssqJN4yj38VO8z6-ZSCw/edit?usp=drive_link">جدول الدوام</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1ANAxJ3MFom8ugKYdsa_CbTVpWaHXXiim3EuIVp40LFY/edit?usp=drive_link">الضمان الاجتماعي</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1u2PKZKSAiiqd3Cfso9Frj4FL_Nirpz58kNs_Z1uwJ0g/edit?usp=drive_link">جرد الأغراض الشخصية</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1PBaM3JIiLX5uCXk13DrtLpjlrSrzXnoU?usp=drive_link">الإجازات</a></li>
+    </ul>
+
+    <!-- الصورة والعناوين الخاصة بشركتك -->
+    <img src="IBRAHEM.JPG.jpg" width="1500" height="600">
+    <h1>IBRAHEM ALDARWESH</h1>
+    <p>HUMAN RESOURCES ALNASHMI KINGDOM COMPANY</p>
+
+    <h1>شركة مملكة النشمي لاستيراد الذهب والمجوهرات محدودة المسؤولية</h1>
+    
+    <h2>أفرع الشركة</h2>
+
+    <h3>البصرة</h3>
+    <ul>
+        <li>1- التايم سكوير</li>
+        <li>2- العشار الماس</li>
+        <li>3- العشار ذهب</li>
+        <li>4- الموفنبيك</li>
+    </ul>
+    <img src="zen 1.jpg" width="1000" height="600">
+
+    <h3>بغداد</h3>
+    <ul>
+        <li>1- المنصور</li>
+        <li>2- قرية دجلة</li>
+        <li>3- بابيلون</li>
+        <li>4- الدريم سيتي</li>
+        <li>5- بغداد مول</li>
+        <li>6- الجادرية</li>
+        <li>7- العامرية</li>
+    </ul>
+    <img src="zen-iletisim-2.jpg" width="1000" height="600">
+
+    <h3>كربلاء</h3>
+    <ul>
+        <li>فرع الحارث</li>
+    </ul>
+    <img src="karbalaa.jpg" width="1000" height="600">
+
+    <h3>أربيل</h3>
+    <ul>
+        <li>فرع غولان</li>
+    </ul>
+    <img src="gulan.jpg" width="1000" height="600">
+
+    <h3>السليمانية</h3>
+    <ul>
+        <li>فرع فاميلي مول</li>
+    </ul>
+    <img src="zen4.jpg" width="1000" height="600">
+
+    <button onclick="window.location.href='https://sites.google.com/d/1-KLWKOIonDqZ6_8C1TNkuAP_qjJUQRrJ/p/1Js2a3GY5TMAE0KeEOKA33BfOyBRDuU1S/edit';">
+        اذهب إلى الموقع
+    </button>
+
+    <script>
+        // دالة لفتح/إغلاق القائمة المنسدلة عند الضغط على زر القائمة
+        function toggleMenu() {
+            var menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+
+        // إغلاق القائمة عند النقر خارجها
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-icon') && !event.target.matches('.menu-icon span')) {
+                var menu = document.getElementById('dropdownMenu');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
