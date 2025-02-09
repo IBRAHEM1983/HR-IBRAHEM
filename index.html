@@ -157,6 +157,21 @@
         <li><a href="https://docs.google.com/spreadsheets/d/1u2PKZKSAiiqd3Cfso9Frj4FL_Nirpz58kNs_Z1uwJ0g/edit?usp=drive_link">جرد الأغراض الشخصية</a></li>
         <li><a href="https://drive.google.com/drive/folders/1PBaM3JIiLX5uCXk13DrtLpjlrSrzXnoU?usp=drive_link">الإجازات</a></li>
     </ul>
+    <script>
+    function openSheet(url) {
+        document.getElementById('sheetContainer').innerHTML = 
+            '<iframe src="' + url + '" width="100%" height="600px"></iframe>';
+    }
+</script>
+
+<ul class="dropdown-menu" id="dropdownMenu">
+    <li><a href="#" onclick="openSheet('https://docs.google.com/spreadsheets/d/1vqb8JIX_PU_06O7Fw7nQ2FWio5MHyjMO/edit?usp=sharing')">حركة الأغراض</a></li>
+    <li><a href="#" onclick="openSheet('https://docs.google.com/spreadsheets/d/1aQVXpLG8JFllfgzyMbb3FnaZYZhNZLwX-Z-zEKi5zeo/edit?usp=sharing')">فهرس الكتب الإدارية</a></li>
+    <li><a href="#" onclick="openSheet('https://docs.google.com/spreadsheets/d/12Ru1oJrPRtWTwOrfu7WY98BBOvNdfoA591Y_lxaYaio/edit?usp=sharing')">التوظيف</a></li>
+</ul>
+
+<!-- مكان عرض ملف Excel التفاعلي -->
+<div id="sheetContainer" style="margin-top: 20px;"></div>
 
     <!-- الصورة والعناوين الخاصة بشركتك -->
     <img src="IBRAHEM.JPG.jpg" width="1500" height="600">
